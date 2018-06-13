@@ -28,8 +28,23 @@
         <h2>Recent Posts</h2> {% for post in site.posts limit:7 %}
         <li class="new-post-list">
           <a href="{{ post.url }}" class="post-list-contents">
-            <h3 class="new-post-list-title">{{ post.title }}</h3>
-            <p><time datetime="{{ post.date | date: " %Y-%m-%d " }}">{{ post.date | date_to_long_string }}</time></p>
+            {% assign foundImage = 0 %}
+              {% assign images = post.content | split:"<img " %}
+              {% for image in images %}
+                {% if image contains 'src' %}
+
+                    {% if foundImage == 0 %}
+                        {% assign html = image | split:"/>" | first %}
+                        <img class="new-post-list-image" {{ html }} />
+                        {% assign foundImage = 1 %}
+                    {% endif %}
+                {% endif %}
+              {% endfor %}
+            <div class="new-post-list-bg">
+              <h3 class="new-post-list-title">{{ post.title }}</h3>
+              <p><time datetime="{{ post.date | date: " %Y-%m-%d " }}">{{ post.date | date_to_long_string }}</time></p>
+              <p class="new-post-list-excerpt">{{ post.content | strip_html | truncatewords: 20 }}</p>
+            </div>
           </a>
         </li>
         {% endfor %}
