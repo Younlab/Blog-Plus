@@ -1,31 +1,46 @@
 <!DOCTYPE html>
 <html lang="en">
 
-  <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link rel="stylesheet" href="/css/commom.css">
-    <title>Document</title>
-  </head>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link rel="stylesheet" href="/css/commom.css">
+  <title>{{ site.title }}</title>
+</head>
 
-  <body>
-    <!-- header -->
-    <header>
+<body>
+  <!-- header -->
+  <header class="left-header">
+    <!-- logo -->
+    <div></div>
 
-    </header>
+    <!-- nav -->
+    <nav></nav>
+  </header>
 
-    <!-- contents Wrap -->
-    <section>
+  <!-- contents Wrap -->
+  <section class="right-contents">
 
-      <!-- contents -->
-      <section>
-
-      </section>
-      <footer>
-
-      </footer>
+    <!-- contents -->
+    <section class="container">
+      <ul class="new-posts">
+        <h2>Recent Posts</h2> {% for post in site.posts limit:7 %}
+        <li class="new-post-list">
+          <a href="{{ post.url }}" class="post-list-contents">
+            <h3 class="new-post-list-title">{{ post.title }}</h3>
+            <p><time datetime="{{ post.date | date: " %Y-%m-%d " }}">{{ post.date | date_to_long_string }}</time></p>
+          </a>
+        </li>
+        {% endfor %}
+      </ul>
     </section>
-  </body>
+
+    <!-- footer -->
+    <footer>
+
+    </footer>
+  </section>
+</body>
 
 </html>

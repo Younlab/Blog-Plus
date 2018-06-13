@@ -1,4 +1,16 @@
-// reset
+// site main colors
+$main-gray: #4a4647;
+$main-bgray: #eaeaea;
+$sub-gray: #8a8788; // reset
+// light font
+@font-face {
+  font-family: 'NotoSansKR';
+  font-style: normal;
+  font-weight: 300;
+  src: local('NotoSansKR-Light'), url("//cdn.jsdelivr.net/korean-webfonts/latest/corps/google/NotoSansKR/NotoSansKR-Light-Hangul.woff2") format('woff2'), url("//cdn.jsdelivr.net/korean-webfonts/latest/corps/google/NotoSansKR/NotoSansKR-Light-Hangul.woff") format('woff');
+  font-stretch: normal;
+  unicode-range: U+0021-33FF,U+A000-F8FF,U+FB00-F251;
+}
 
 * {
   margin: 0;
@@ -9,6 +21,23 @@ body,
 html {
   width: 100%;
   height: 100%;
+  background: $main-bgray;
+}
+
+a,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+span,
+strong {
+  color: $main-gray;
+  font-family: 'NotoSansKR','Malgun Gothic',sans-serif;
+  letter-spacing: -.025em;
+  -webkit-font-smoothing: antialiased;
 }
 
 li,
@@ -33,4 +62,92 @@ ol,
 section,
 ul {
   box-sizing: border-box;
+}
+
+.container {
+  width: 100%;
+  max-width: 960px;
+  margin: 0 auto;
+}
+// default layouts
+
+.left-header {
+  height: 100%;
+  width: 20%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  background-color: $main-gray;
+}
+
+.right-contents {
+  height: 100%;
+  width: 80%;
+  position: absolute;
+  top: 0;
+  right: 0;
+}
+// post list-style
+
+.new-posts {
+  padding-top: 56px;
+  width: 100%;
+
+  h2 {
+    padding-left: 8px;
+  }
+
+  .new-post-list {
+    float: left;
+    height: 400px;
+    padding: 8px;
+    width: 25%;
+  }
+
+  .new-post-list:nth-of-type(1) {
+    width: 50%;
+  }
+
+  .post-list-contents {
+    display: block;
+    height: 100%;
+    width: 100%;
+    border: 1px solid $main-gray;
+    padding: 16px;
+
+    .new-post-list-title {
+      font-weight: 400;
+    }
+
+    .new-post-list-title::after {
+      content: '';
+      display: block;
+      width: 48px;
+      height: 1px;
+      background: $main-gray;
+      margin: 8px 0;
+    }
+
+    p {
+      color: $sub-gray;
+      font-size: 12px;
+    }
+  }
+}
+
+.new-posts::after {
+  content: '';
+  height: 0;
+  display: block;
+  clear: both;
+}
+@media(max-width:1140px) {
+  .right-contents {
+    height: auto;
+    width: 100%;
+  }
+
+  .left-header {
+    display: none;
+  }
 }
