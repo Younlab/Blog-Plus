@@ -85,11 +85,15 @@ ul {
   color: #eaeaea;
 }
 
+#post-button {
+  display: none;
+}
+
 .container {
   width: 100%;
-  max-width: 1140px;
+  max-width: 980px;
   margin: 0 auto;
-  padding: 0 16px;
+  padding: 0 8px;
 }
 
 .left-header {
@@ -255,12 +259,90 @@ ul {
   border-bottom: 1px solid rgba(138, 135, 136, 0.1);
 }
 
+.hamburger-inner {
+  visibility: hidden !important;
+}
+
+.hamburger-inner, .hamburger-inner:after, .hamburger-inner:before {
+  background-color: #8a8788 !important;
+  height: 2px !important;
+}
+
+.hamburger-inner:after, .hamburger-inner:before {
+  visibility: visible !important;
+}
+
 @media (max-width: 1140px) {
+  #post-button {
+    display: block;
+    position: fixed;
+    top: 0;
+    left: -6px;
+    transform: scale(0.5);
+    z-index: 100;
+  }
+  .logo {
+    position: absolute;
+    top: 8px;
+    left: 48px;
+  }
+  .logo a {
+    position: relative;
+  }
+  .logo img {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 40px;
+    max-width: 40px;
+  }
+  .logo span {
+    width: 120px;
+    transform: rotate(90deg);
+    display: block;
+    position: absolute;
+    left: -40px;
+    top: 96px;
+    color: #eaeaea;
+  }
+  .nav-wrap {
+    width: 240px;
+    padding-top: 96px;
+    position: relative;
+    margin: 0 auto;
+  }
   .right-contents {
     height: auto;
     width: 100%;
+    padding-left: 40px;
+    z-index: 1;
   }
   .left-header {
     display: none;
+    position: fixed;
+    width: 100%;
+    z-index: 99;
+  }
+  .new-posts-title {
+    padding-left: 8px;
+    float: none;
+    width: 100%;
+  }
+  .new-posts-title h2 {
+    font-size: 32px;
+  }
+  .new-posts {
+    float: none;
+    width: 100%;
+  }
+  .new-posts .new-post-list {
+    float: none;
+    height: 200px;
+    width: 100%;
+  }
+  .new-posts .new-post-list:nth-of-type(1) {
+    float: none;
+    height: 200px;
+    width: 100%;
   }
 }

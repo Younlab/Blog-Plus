@@ -14,6 +14,7 @@
 }
 
 .content-wrap {
+  padding: 8px;
   padding-top: 56px;
   float: left;
   width: 75%;
@@ -49,4 +50,41 @@
   color: #8a8788;
   font-size: 90%;
   text-align: right;
+}
+
+@media (max-width: 1140px) {
+  .title-wrap {
+    padding-left: 8px;
+    float: none;
+    width: 100%;
+  }
+  .title-wrap h2 {
+    font-size: 32px;
+  }
+  .content-wrap {
+    float: none;
+    width: 100%;
+  }
+  .post-list-wrap .post-list {
+    margin-bottom: 16px;
+    background: rgba(138, 135, 136, 0.1);
+    padding: 16px;
+  }
+  .post-list-wrap .post-list .post-list-title::after {
+    content: '';
+    height: 1px;
+    width: 32px;
+    display: block;
+    background: #4a4647;
+    margin: 8px 0;
+  }
+  .post-list-wrap .post-list .post-list-content {
+    font-size: 80%;
+    line-height: 1.5;
+  }
+  .post-list-wrap .post-list .post-list-date {
+    color: #8a8788;
+    font-size: 90%;
+    text-align: right;
+  }
 }

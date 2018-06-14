@@ -1,13 +1,13 @@
 ---
 layout: default
-title: All
+title: Github
 ---
 <section class="title-wrap">
   <h2>{{ page.title }}</h2>
-  <p>Posts Number : {{ site.posts | size }}</p>
+  <p>Posts Number : {{ site.categories.github | size }}</p>
 </section>
 <section class="content-wrap">
-  {% for post in site.posts %}
+  {% for post in site.categories.github %}
   <ul class="post-list-wrap">
     <li class="post-list">
       <a href="{{ post.url }}">
