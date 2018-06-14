@@ -3,8 +3,7 @@ layout: post
 title:  "Python Class 실습01"
 date:   2018-05-23
 excerpt: "Python Class"
-tag:
-- python
+categories: python
 ---
 ### Class
 클래스는 객체를 만들기 위한 틀이다.

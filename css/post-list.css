@@ -1,0 +1,52 @@
+.title-wrap {
+  padding-top: 56px;
+  float: left;
+  width: 25%;
+}
+
+.title-wrap h2 {
+  padding-top: 8px;
+  font-family: 'Malgun Gothic', sans-serif;
+  font-weight: 700;
+  font-size: 48px;
+  white-space: pre-line;
+  letter-spacing: 1.5;
+}
+
+.content-wrap {
+  padding-top: 56px;
+  float: left;
+  width: 75%;
+}
+
+.content-wrap li,
+.content-wrap ol,
+.content-wrap ul {
+  list-style: none;
+}
+
+.post-list-wrap .post-list {
+  margin-bottom: 16px;
+  background: rgba(138, 135, 136, 0.1);
+  padding: 16px;
+}
+
+.post-list-wrap .post-list .post-list-title::after {
+  content: '';
+  height: 1px;
+  width: 32px;
+  display: block;
+  background: #4a4647;
+  margin: 8px 0;
+}
+
+.post-list-wrap .post-list .post-list-content {
+  font-size: 80%;
+  line-height: 1.5;
+}
+
+.post-list-wrap .post-list .post-list-date {
+  color: #8a8788;
+  font-size: 90%;
+  text-align: right;
+}

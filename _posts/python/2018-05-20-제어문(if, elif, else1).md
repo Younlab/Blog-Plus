@@ -3,8 +3,7 @@ layout: post
 title:  "제어문(if, elif, else)"
 date:   2018-05-20
 excerpt: "if, elif, else"
-tag:
-- python
+categories: python
 ---
 ### if 문의 구성
 
