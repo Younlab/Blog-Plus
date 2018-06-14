@@ -27,11 +27,27 @@ url: "" # the base hostname & protocol for your site, e.g. http://example.com
 twitter_username: jekyllrb
 github_username:  jekyll
 
-# Build settings
+
+# Jekyll
+permalink: /:title/
 markdown: kramdown
-theme: minima
+highlighter: rouge
+# kramdown:
+#   auto_ids: true
+#   footnote_nr: 1
+#   entity_output: as_char
+#   toc_levels: 1..6
+#   enable_coderay: false
+# theme: minima
 plugins:
   - jekyll-feed
+  - jekyll-gist
+# paging
+gems: [jekyll-paginate]
+
+category_dir: category/
+
+
 
 # Exclude from processing.
 # The following items will not be processed, by default. Create a custom list

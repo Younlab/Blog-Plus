@@ -1,7 +1,9 @@
 // site main colors
 $main-gray: #4a4647;
 $main-bgray: #eaeaea;
-$sub-gray: #8a8788; // reset
+$sub-gray: #8a8788;
+
+// reset
 // light font
 @font-face {
   font-family: 'NotoSansKR';
@@ -33,22 +35,22 @@ h5,
 h6,
 p,
 span,
-strong {
-  color: $main-gray;
+strong,
+pre {
+  // color: $main-gray;
   font-family: 'NotoSansKR','Malgun Gothic',sans-serif;
-  letter-spacing: -.025em;
   -webkit-font-smoothing: antialiased;
-}
+  color: $main-gray;
 
-li,
-ol,
-ul {
-  list-style: none;
 }
 
 a {
   text-decoration: none;
   color: #333;
+}
+
+img{
+  max-width: 100%;
 }
 
 a,
@@ -64,9 +66,39 @@ ul {
   box-sizing: border-box;
 }
 
+.logo {
+  position: absolute;
+  top: 16px;
+  left: 28px;
+
+  a {
+    position: relative;
+  }
+
+  img {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 40px;
+    max-width: 40px;
+  }
+
+  span {
+    width: 120px;
+    transform: rotate(90deg);
+    display: block;
+    position: absolute;
+    left: -40px;
+    top: 96px;
+    // font-size:
+    color: $main-bgray;
+    // font-family: 'Malgun Gothic',sans-serif;
+  }
+}
+
 .container {
   width: 100%;
-  max-width: 960px;
+  max-width: 1140px;
   margin: 0 auto;
 }
 // default layouts
@@ -74,32 +106,100 @@ ul {
 .left-header {
   height: 100%;
   width: 20%;
-  position: absolute;
+  position: fixed;
   top: 0;
   left: 0;
   background-color: $main-gray;
 }
 
 .right-contents {
-  height: 100%;
   width: 80%;
   position: absolute;
   top: 0;
   right: 0;
+  overflow-y: hidden;
+}
+// nav
+
+.nav-wrap {
+  position: absolute;
+  bottom: 32px;
+  left: 32px;
+  li,
+  ol,
+  ul {
+    list-style: none;
+  }
+
+
+  li {
+    line-height: 2.5;
+
+    a {
+      font-size: 1.3em;
+      color: $main-bgray;
+    }
+  }
+
+  li:nth-of-type(5)::after {
+    content: '';
+    display: block;
+    width: 32px;
+    height: 1px;
+    background: $main-bgray;
+    margin: 8px 0;
+  }
+
+  li:nth-of-type(6) {
+    ul {
+      li {
+        float: left;
+        padding-right: 16px;
+      }
+    }
+
+    ul::after {
+      content: '';
+      display: block;
+      height: 1px;
+      clear: both;
+    }
+  }
 }
 // post list-style
 
-.new-posts {
+.new-posts-title {
   padding-top: 56px;
-  width: 100%;
+  float: left;
+  width: 25%;
 
   h2 {
-    padding-left: 8px;
+    padding-top: 8px;
+    font-family: 'Malgun Gothic', sans-serif;
+    font-weight: 700;
+    font-size: 48px;
+    white-space: pre-line;
+    letter-spacing: 1.5;
   }
+
+  p {
+    padding-left: 4px;
+  }
+}
+
+.new-posts {
+  li,
+  ol,
+  ul {
+    list-style: none;
+  }
+  padding-top: 56px;
+  float: left;
+  width: 75%;
 
   .new-post-list {
     float: left;
-    height: 400px;
+    height: 320px;
     padding: 8px;
     width: 25%;
   }
@@ -119,7 +219,7 @@ ul {
     .new-post-list-image {
       margin: 0 auto;
       height: 100%;
-      opacity: 0.6;
+      opacity: 0.4;
     }
 
     .new-post-list-bg {
@@ -133,6 +233,7 @@ ul {
 
       .new-post-list-title {
         font-weight: 700;
+        font-size: 12pt;
         color: $main-gray;
       }
 
@@ -145,19 +246,19 @@ ul {
         margin: 8px 0;
       }
 
+      .new-post-list-date {
+        position: absolute;
+        bottom: 0;
+        right: 0;
+        padding: 16px;
+      }
+
       p {
         color: $sub-gray;
         font-size: 12px;
       }
 
-      .new-post-list-excerpt {
-        position: absolute;
-        right: 0;
-        bottom: 0;
-        text-align: right;
-        padding: 16px;
-        white-space: inherit;
-      }
+      .new-post-list-excerpt {}
     }
   }
 }
@@ -168,6 +269,12 @@ ul {
   display: block;
   clear: both;
 }
+
+// document
+.title-section{
+  border-bottom: 1px solid rgba(138,135, 136,0.1);
+}
+
 @media(max-width:1140px) {
   .right-contents {
     height: auto;
