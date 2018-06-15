@@ -4,6 +4,7 @@ title:  "Python Class 실습02"
 date:   2018-05-25
 excerpt: "Python Class"
 categories: python
+comments: true
 ---
 ### 도서관리 시스템
 - 출제 문제

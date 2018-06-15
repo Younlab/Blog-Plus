@@ -4,6 +4,7 @@ title:  "제어문(if, elif, else)"
 date:   2018-05-20
 excerpt: "if, elif, else"
 categories: python
+comments: true
 ---
 ### if 문의 구성
 
