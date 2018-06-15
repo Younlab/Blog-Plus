@@ -2,6 +2,7 @@
 $main-gray: #4a4647;
 $main-bgray: #eaeaea;
 $sub-gray: rgba(138,135, 136,0.1);
+$sub-w:rgba(255,255,255,0.2);
 $hl-pink:#f8717d;
 $hl-pink2:#EC8298;
 $hl-orenge:#FDA381;
@@ -627,12 +628,12 @@ $hl-perple:#99679E;
 }
 
 .markdown-body table tr {
-  background-color: #fff;
+  background-color: $sub-gray;
   border-top: 1px solid #c6cbd1;
 }
 
 .markdown-body table tr:nth-child(2n) {
-  background-color: #f6f8fa;
+  background-color: $sub-w;
 }
 
 .markdown-body img {
