@@ -27,6 +27,7 @@
 }
 
 .post-list-wrap .post-list {
+  transition: all .2s ease;
   margin-bottom: 16px;
   background: rgba(138, 135, 136, 0.1);
   padding: 16px;
@@ -50,6 +51,10 @@
   color: #8a8788;
   font-size: 90%;
   text-align: right;
+}
+
+.post-list-wrap .post-list:hover {
+  border-left: 16px solid #f8717d;
 }
 
 @media (max-width: 1140px) {
