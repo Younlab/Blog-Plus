@@ -54,6 +54,7 @@
 }
 
 .post-list-wrap .post-list:hover {
+  transition: all .2s ease;
   border-left: 16px solid #f8717d;
 }
 

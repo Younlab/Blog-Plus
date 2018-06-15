@@ -65,6 +65,7 @@ $hl-pink:#f8717d;
     }
   }
   .post-list:hover{
+    transition: all .2s ease;
     border-left: 16px solid $hl-pink;
   }
 }
