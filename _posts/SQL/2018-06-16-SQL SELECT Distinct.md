@@ -1,7 +1,7 @@
 ---
 layout: post
 title:  "SQL SELECT Distinct"
-date:   2018-06-15
+date:   2018-06-16
 categories: SQL
 comments: true
 ---

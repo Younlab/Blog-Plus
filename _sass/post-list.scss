@@ -1,6 +1,7 @@
 $main-gray: #4a4647;
 $main-bgray: #eaeaea;
 $sub-gray: #8a8788;
+$hl-pink:#f8717d;
 
 
 
@@ -36,6 +37,7 @@ $sub-gray: #8a8788;
 
 .post-list-wrap{
   .post-list{
+    transition: all .2s ease;
     margin-bottom: 16px;
     background: rgba(138,135, 136,0.1);
     padding: 16px;
@@ -61,6 +63,9 @@ $sub-gray: #8a8788;
       font-size: 90%;
       text-align: right;
     }
+  }
+  .post-list:hover{
+    border-left: 16px solid $hl-pink;
   }
 }
 
