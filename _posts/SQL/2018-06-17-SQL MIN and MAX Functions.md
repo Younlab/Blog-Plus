@@ -26,7 +26,7 @@ comments: true
 ```
 
 ###### Extra MIN()
-다음의 sql 문은 가장 저렴한 제품의 가격을 찾는다.
+다음의 SQL 문은 가장 저렴한 제품의 가격을 찾는다.
 ```sql
 	SELECT MIN(Price) AS SamllestPrice
 	FROM Products;
@@ -38,7 +38,7 @@ comments: true
 > 실행할 테이블은 `Products`  다.  
 
 ###### Extra MAX()
-다음의 sql 문은 가장 비싼 제품의 가격을 찾습니다.
+다음의 SQL 문은 가장 비싼 제품의 가격을 찾습니다.
 ```sql
 	SELECT MAX(Price) AS LargestPrice
 	FROM Products;
