@@ -73,7 +73,9 @@
   }
   .post-list-wrap .post-list {
     margin-bottom: 16px;
-    background: rgba(138, 135, 136, 0.1);
+    background: rgba(255, 255, 255, 0.6);
+
+    /* background: rgba(138, 135, 136, 0.1); */
     padding: 16px;
   }
   .post-list-wrap .post-list .post-list-title::after {
