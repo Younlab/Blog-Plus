@@ -13,16 +13,14 @@ comments: true
 이 문서에는 [Field options](https://docs.djangoproject.com/en/2.0/ref/models/fields/#field-options) 및 [Field](https://docs.djangoproject.com/en/2.0/ref/models/fields/#django.db.models.Field) 유형을 포함한 필드의 모든 API참조가 포함되어 있습니다.
 
 > **참고항목**
->
 > 기본 제공 필드가 효과를 발휘하지 않는 경우 특정 국가와 문화에 유용한 다양한 코드를 포함하는 [django-localflavor](https://github.com/django/django-localflavor) [documents](https://django-localflavor.readthedocs.io/en/latest/) 를 사용해 볼 수 있습니다.
 >
 > 또한 사용자 정의 모델 필드를 쉽게 작성할 수 있습니다.
 
 > **Note**
->
 > 기술적으로 이러한 모델은 [django.db.models.fields](https://docs.djangoproject.com/en/2.0/ref/models/fields/#module-django.db.models.fields) 에 정의되어 있지만 편의상 [django.db.models](https://docs.djangoproject.com/en/2.0/topics/db/models/#module-django.db.models) 로 가져옵니다. <Foo>Field.
 
-### Field options
+## Field options
 모든 필드 유형에 대해 다음 인수를 사용할 수 있습니다.  모두 선택 사항입니다.
 
 ### Null
@@ -39,7 +37,6 @@ True 라면, Django 는 빈 값을 데이터베이스에 NULL 로 저장합니�
 문자열 기반 및 비 문자열 기반 필드의 경우 폼에서 빈 값을 허용하려는 경우 `blank = True` 로 설정해야합니다. [null](https://docs.djangoproject.com/en/2.0/ref/models/fields/#django.db.models.Field.null) 매개 변수는 데이터베이스 저장소에만 영향을줍니다 (blank[blank](https://docs.djangoproject.com/en/2.0/ref/models/fields/#django.db.models.Field.blank) 참조)
 
 > **Note**
->
 > Oracle데이터베이스 백앤드 를 사용하는 경우 NULL값이 저장되어 이 특성에 관계 없이 빈 문자열을 나타냅니다.
 
 [BooleanField](https://docs.djangoproject.com/en/2.0/ref/models/fields/#django.db.models.BooleanField) 로 [null](https://docs.djangoproject.com/en/2.0/ref/models/fields/#django.db.models.Field.null) 값을 허용하려면 대신 [NullBooleanField](https://docs.djangoproject.com/en/2.0/ref/models/fields/#django.db.models.NullBooleanField)를 사용하세요.
@@ -226,3 +223,100 @@ unique_for_date와 unique_for_month와 유사합니다.
 
 ###### Registering and fetching lookups
 필드는 조회 등록 API ([lookup registration API](https://docs.djangoproject.com/en/2.0/ref/models/lookups/#lookup-registration-api)) 를 구현합니다. 이 API를 사용하여 필드 클래스에 사용할 수 있는 조회와 필드에서 조회를 가져오는 방법을 사용자 정의할 수 있습니다.
+- - - -
+## Field types
+### AutoField
+class AutoField(**options)[source](https://docs.djangoproject.com/en/2.0/_modules/django/db/models/fields/#AutoField)
+
+사용 가능한 ID 에 따라 자동으로 증가하는[IntegerField](https://docs.djangoproject.com/en/2.0/ref/models/fields/#django.db.models.IntegerField) 입니다.
+보통 이것을 직접 사용할 필요는 없습니다. 별도로 지정하지 않으면 기본 키 필드가 자동으로 모델에 추가됩니다.
+[Automatic primary key fields](https://docs.djangoproject.com/en/2.0/topics/db/models/#automatic-primary-key-fields) 를 참조하십시오.
+- - - -
+### BigAutoField
+class BigAutoField(**options)[source](https://docs.djangoproject.com/en/2.0/_modules/django/db/models/fields/#BigAutoField)
+
+1에서 9223372036854775807 사이의 숫자를 맞출 수 있다는 점을 제외하고는 [AutoField](https://docs.djangoproject.com/en/2.0/ref/models/fields/#django.db.models.AutoField) 와 매우 유사한 64비트 정수 입니다.
+- - - -
+### BigIntegerField
+class BigIntegerField(**options)[source](https://docs.djangoproject.com/en/2.0/_modules/django/db/models/fields/#BigIntegerField)
+
+-92233720368575808에서 922337203685854775807 사이의 숫자를 맞출 수 있다는 점을 제외하고는 [IntegetField](https://docs.djangoproject.com/en/2.0/ref/models/fields/#django.db.models.IntegerField)와 매우 유사합니다. 이 필드의 기본 양식 위젯은 [TextInput](https://docs.djangoproject.com/en/2.0/ref/forms/widgets/#django.forms.TextInput) 입니다.
+- - - -
+### BinaryField
+class BinaryField(**options)[source](https://docs.djangoproject.com/en/2.0/_modules/django/db/models/fields/#BinaryField)
+
+원시 이진 데이터를 저장할 필드. 바이트 할당만 지원합니다. 이 필드는 기능이 제한되어 있습니다. 예를 들어 BinaryField값에 대한 쿼리 집합은 필터링 할 수 없습니다. 또한 [ModelForm](https://docs.djangoproject.com/en/2.0/topics/forms/modelforms/#django.forms.ModelForm) 에 BinaryField 를 포함할 수 없습니다.
+
+> **Abusing BinaryField**
+>
+> 데이터베이스에 파일을 저장하는 것을 고려할 수도 있지만, 이 경우에는 99%가 잘못된 설계입니다. 이 필드는 적절한 정적 파일 처리를 대체하지 않습니다.
+- - - -
+### BooleanField
+class BooleanField(**options)[source](https://docs.djangoproject.com/en/2.0/_modules/django/db/models/fields/#BooleanField)
+
+A true/false field.
+
+이 필드의 기본 양식 위젯은 [CheckboxInput](https://docs.djangoproject.com/en/2.0/ref/forms/widgets/#django.forms.CheckboxInput) 입니다.
+
+[null](https://docs.djangoproject.com/en/2.0/ref/models/fields/#django.db.models.Field.null) 값을 받아 들일 필요가 있다면 대신 [NullBooleanField](https://docs.djangoproject.com/en/2.0/ref/models/fields/#django.db.models.NullBooleanField) 를 사용하십시오.
+
+[Field.default](https://docs.djangoproject.com/en/2.0/ref/models/fields/#django.db.models.Field.default) 가 정의되어 있지 않으면 BooleanField의 기본값은 None입니다.
+- - - -
+### CharField
+class CharField(max_length=None, **options)[source](https://docs.djangoproject.com/en/2.0/_modules/django/db/models/fields/#CharField)
+
+작은 문자열에서 큰 문자열까지의 문자열 필드입니다.
+
+많은 양의 텍스트는 [TextField](https://docs.djangoproject.com/en/2.0/ref/models/fields/#django.db.models.TextField) 를 사용하십시오.
+
+이 필드의 기본 양식 위젯은 [TextInput](https://docs.djangoproject.com/en/2.0/ref/models/fields/#django.db.models.TextField) 입니다.
+
+[CharField](https://docs.djangoproject.com/en/2.0/ref/models/fields/#django.db.models.CharField) 에는 다음과 같은 추가적인 인수가 있습니다.
+
+**CharField.max_length**
+필드의 최대 길이 (문자 수)입니다.
+max_length 는 데이터베이스 레벨과 Django 의 유효성 검사에서 적용됩니다.
+
+> **Note**
+>
+> 여러 데이터베이스 백엔드로 이동할 수 있어야 하는 응용 프로그램을 작성하는 경우 일부 백업의 max_Length에 제한이 있음을 알아야 합니다. 자세한 내용은 [database backend notes](https://docs.djangoproject.com/en/2.0/ref/databases/) 를 참조하십시오.
+- - - -
+### DateField
+class DateField(auto_now=False, auto_now_add=False, **options)[source](https://docs.djangoproject.com/en/2.0/_modules/django/db/models/fields/#DateField)
+
+Python에서 datetime.date 인스턴스로 표현되는 날짜입니다.
+추가로 몇 가지 선택적 인수가 있습니다.
+
+**DateField.auto_now**
+개체가 저장 될 때마다 지금 필드를 자동으로 설정합니다.
+“마지막으로 수정 된” 타임 스탬프에 유용합니다.
+현재 날짜는 항상 사용됩니다.
+재정의 할 수있는 기본값이 아닙니다.
+
+이 필드는 [Mode.save()](https://docs.djangoproject.com/en/2.0/ref/models/instances/#django.db.models.Model.save) 를 호출할 때만 자동으로 업데이트됩니다. 이러한 업데이트에서 필드에 대한 사용자 지정 값을 지정할 수 있지만 [QuerySet.update()](https://docs.djangoproject.com/en/2.0/ref/models/querysets/#django.db.models.query.QuerySet.update) 와 같은 다른 방법으로 필드를 업데이트할 때는 필드가 업데이트되지 않습니다.
+
+**DateField.auto_now_add**
+객체가 처음 생성 될 때 자동으로 필드를 현재로 설정합니다.
+타임 스탬프 생성에 유용합니다.
+현재 날짜는 항상 사용됩니다.
+재정의 할 수있는 기본값이 아닙니다.
+따라서 객체를 만들 때이 필드의 값을 설정하더라도 무시됩니다.
+이 필드를 수정하려면 auto_now_add = True 대신 다음을 설정하십시오.
+
+- For **DateField**: **default=date.today** - from  [datetime.date.today()](https://docs.python.org/3/library/datetime.html#datetime.date.today)
+- For **DateTimeField**: **default=timezone.now** - from  [django.utils.timezone.now()](https://docs.djangoproject.com/en/2.0/ref/utils/#django.utils.timezone.now)
+
+이 필드의 기본 양식 위젯은 [TextInput](https://docs.djangoproject.com/en/2.0/ref/forms/widgets/#django.forms.TextInput) 입니다.
+관리자는 JavaScript 캘린더와 “오늘”에 대한 바로 가기를 추가합니다.
+**invalid_date** 오류 메시지 키가 추가로 포함됩니다.
+
+auto_node_add, auto_now 및 default 옵션은 상호 배타적입니다. 이러한 옵션을 조합하면 오류가 발생합니다.
+
+> **Note**
+>
+> 현재 구현된 대로 auto_no또는 auto_no_add를 True로 설정하면 필드에 editable=False및 blank=True가 설정됩니다.
+
+> **Note**
+>
+> auto_no 및 auto_now_add 옵션은 항상 생성 또는 업데이트 시 [default timezone](https://docs.djangoproject.com/en/2.0/topics/i18n/timezones/#default-current-time-zone) 를 사용합니다. 다른 기능이 필요한 경우, Auto_now 또는 auto_no_adme 을 대신 사용하거나 DateTimed 를 대신 사용하는 대신 사용자가 직접 호출 가능한 기본 값 또는 재지정 **save()**을 사용합니다.
+- - - -
