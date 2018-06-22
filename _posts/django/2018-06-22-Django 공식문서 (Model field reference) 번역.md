@@ -250,6 +250,7 @@ class BinaryField(**options)[source](https://docs.djangoproject.com/en/2.0/_modu
 > **Abusing BinaryField**
 >
 > 데이터베이스에 파일을 저장하는 것을 고려할 수도 있지만, 이 경우에는 99%가 잘못된 설계입니다. 이 필드는 적절한 정적 파일 처리를 대체하지 않습니다.
+
 - - - -
 ### BooleanField
 class BooleanField(**options)[source](https://docs.djangoproject.com/en/2.0/_modules/django/db/models/fields/#BooleanField)
@@ -280,7 +281,9 @@ max_length 는 데이터베이스 레벨과 Django 의 유효성 검사에서 �
 > **Note**
 >
 > 여러 데이터베이스 백엔드로 이동할 수 있어야 하는 응용 프로그램을 작성하는 경우 일부 백업의 max_Length에 제한이 있음을 알아야 합니다. 자세한 내용은 [database backend notes](https://docs.djangoproject.com/en/2.0/ref/databases/) 를 참조하십시오.
+
 - - - -
+
 ### DateField
 class DateField(auto_now=False, auto_now_add=False, **options)[source](https://docs.djangoproject.com/en/2.0/_modules/django/db/models/fields/#DateField)
 
