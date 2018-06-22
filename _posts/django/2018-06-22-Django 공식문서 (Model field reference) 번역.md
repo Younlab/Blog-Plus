@@ -5,7 +5,7 @@ date:   2018-06-22
 categories: django
 comments: true
 ---
-> 이 문서는 Django 공식문서 [Model field reference](https://docs.djangoproject.com/en/2.0/ref/models/fields/#field-options) 의 내용을 번역하였습니다.  
+> 이 문서는 Django 공식문서 [Model field reference](https://docs.djangoproject.com/en/2.0/ref/models/fields/#field-options) 의 내용을 번역하였습니다.
 > 오역이 매우 많을 수도 있습니다. 발견시 Comment 부탁드립니다.
 
 > Django Versions 2.0
@@ -13,11 +13,13 @@ comments: true
 이 문서에는 [Field options](https://docs.djangoproject.com/en/2.0/ref/models/fields/#field-options) 및 [Field](https://docs.djangoproject.com/en/2.0/ref/models/fields/#django.db.models.Field) 유형을 포함한 필드의 모든 API참조가 포함되어 있습니다.
 
 > **참고항목**
+>
 > 기본 제공 필드가 효과를 발휘하지 않는 경우 특정 국가와 문화에 유용한 다양한 코드를 포함하는 [django-localflavor](https://github.com/django/django-localflavor) [documents](https://django-localflavor.readthedocs.io/en/latest/) 를 사용해 볼 수 있습니다.
 >
 > 또한 사용자 정의 모델 필드를 쉽게 작성할 수 있습니다.
 
 > **Note**
+>
 > 기술적으로 이러한 모델은 [django.db.models.fields](https://docs.djangoproject.com/en/2.0/ref/models/fields/#module-django.db.models.fields) 에 정의되어 있지만 편의상 [django.db.models](https://docs.djangoproject.com/en/2.0/topics/db/models/#module-django.db.models) 로 가져옵니다. <Foo>Field.
 
 ### Field options
@@ -37,6 +39,7 @@ True 라면, Django 는 빈 값을 데이터베이스에 NULL 로 저장합니�
 문자열 기반 및 비 문자열 기반 필드의 경우 폼에서 빈 값을 허용하려는 경우 `blank = True` 로 설정해야합니다. [null](https://docs.djangoproject.com/en/2.0/ref/models/fields/#django.db.models.Field.null) 매개 변수는 데이터베이스 저장소에만 영향을줍니다 (blank[blank](https://docs.djangoproject.com/en/2.0/ref/models/fields/#django.db.models.Field.blank) 참조)
 
 > **Note**
+>
 > Oracle데이터베이스 백앤드 를 사용하는 경우 NULL값이 저장되어 이 특성에 관계 없이 빈 문자열을 나타냅니다.
 
 [BooleanField](https://docs.djangoproject.com/en/2.0/ref/models/fields/#django.db.models.BooleanField) 로 [null](https://docs.djangoproject.com/en/2.0/ref/models/fields/#django.db.models.Field.null) 값을 허용하려면 대신 [NullBooleanField](https://docs.djangoproject.com/en/2.0/ref/models/fields/#django.db.models.NullBooleanField)를 사용하세요.
